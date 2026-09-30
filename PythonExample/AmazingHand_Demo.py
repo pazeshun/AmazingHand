@@ -20,15 +20,28 @@ c = Scs0009PyController(
         timeout=0.5,
     )
 
+if Side == 1:
+    MinID = 1
+else:
+    MinID = 11
+
 def sid(i):
     # logical ID: 1..8
     # right hand: 1..8
     # left hand: 11..18
-    return i + 10 if Side == 2 else i
+    if Side == 1:
+        return i
+    else:
+        if 1 <= i <= 2:
+            return i + 14
+        elif (3 <= i <= 4) or (7 <= i):
+            return i + 10
+        elif 5 <= i <= 6:
+            return i + 6
 
 def main():
     
-    c.write_torque_enable(sid(1), 1)  #1 = On / 2 = Off / 3 = Free
+    c.write_torque_enable(MinID, 1)  # (Lowest ID , 1 = On / 2 = Off / 3 = Free )
     t0 = time.time()
 
     while True:

@@ -28,7 +28,7 @@ def sid(i):
 
 def main():
     
-    c.write_torque_enable(1, 1)  #1 = On / 2 = Off / 3 = Free
+    c.write_torque_enable(sid(1), 1)  #1 = On / 2 = Off / 3 = Free
     t0 = time.time()
 
     while True:

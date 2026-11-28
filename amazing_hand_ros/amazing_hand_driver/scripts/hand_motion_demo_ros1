@@ -9,7 +9,7 @@ from actionlib_msgs.msg import GoalStatus
 from control_msgs.msg import FollowJointTrajectoryAction, FollowJointTrajectoryGoal
 from trajectory_msgs.msg import JointTrajectoryPoint
 
-from hand_motion_poses import JOINT_NAMES, options, poses
+from hand_motion_poses import joint_names, options, poses
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
 
     for name, seconds, fingers in poses(args.side):
         goal = FollowJointTrajectoryGoal()
-        goal.trajectory.joint_names = JOINT_NAMES
+        goal.trajectory.joint_names = joint_names(args.side)
         point = JointTrajectoryPoint()
         point.positions = [level for pair in fingers for level in pair]
         point.time_from_start = rospy.Duration.from_sec(seconds)

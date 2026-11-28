@@ -1,6 +1,8 @@
 <launch>
+  <arg name="side" default="1"/>
   <arg name="namespace" default="amazing_hand"/>
   <node pkg="rviz" type="rviz" name="hand_rviz" launch-prefix="'$(find amazing_hand_driver)/scripts/hand_rviz_config'">
+    <env name="HAND_RVIZ_SIDE" value="$(arg side)"/>
     <env name="HAND_RVIZ_NAMESPACE" value="$(eval arg('namespace').strip('/'))"/>
   </node>
 </launch>

@@ -53,10 +53,10 @@ TEST(Transmission, RealUrdfAndRoundTrip) {
   ASSERT_EQ(0, pclose(process));
   urdf::Model model;
   ASSERT_TRUE(model.initString(xml));
-  ASSERT_TRUE(model.getLink("right_hand_palm_link"));
-  auto hinge = model.getJoint("right_hand_index_flexion");
+  ASSERT_TRUE(model.getLink("r_palm_link"));
+  auto hinge = model.getJoint("r_index_flexion");
   ASSERT_TRUE(hinge && hinge->mimic);
-  EXPECT_EQ("index_flexion_level", hinge->mimic->joint_name);
+  EXPECT_EQ("r_index_flexion_level", hinge->mimic->joint_name);
   std::vector<transmission_interface::TransmissionInfo> infos;
   ASSERT_TRUE(transmission_interface::TransmissionParser::parse(xml, infos));
   ASSERT_EQ(4u, infos.size());

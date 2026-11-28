@@ -9,11 +9,13 @@ import yaml
 import pytest
 import rclpy
 from control_msgs.action import FollowJointTrajectory
+from control_msgs.msg import JointTrajectoryControllerState
 from rclpy.action import ActionClient
+from rclpy.wait_for_message import wait_for_message
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectoryPoint
 
-from servo_bus import MIDDLE, NAMES, STEP, ServoBus
+from servo_bus import MIDDLE, STEP, ServoBus, joint_names
 
 
 @pytest.mark.parametrize("side,hand,first_id", [(1, "right_hand", 1), (2, "left_hand", 11)])
@@ -34,6 +36,7 @@ def test_hardware_requires_explicit_calibration(side, hand, first_id, tmp_path):
 
 @pytest.mark.parametrize("side,namespace", [(1, "amazing_hand"), (2, "robot/left_hand")])
 def test_trajectory(side, namespace, tmp_path):
+    names = joint_names(side)
     bus = ServoBus(side)
     rclpy.init()
     node = rclpy.create_node("hand_test")
@@ -50,8 +53,12 @@ def test_trajectory(side, namespace, tmp_path):
     ], start_new_session=True, env=env)
     try:
         assert client.wait_for_server(timeout_sec=25)
+        ready, state = wait_for_message(
+            JointTrajectoryControllerState, node,
+            f"/{namespace}/position_joint_trajectory_controller/state", time_to_wait=10)
+        assert ready and state.joint_names == names
         goal = FollowJointTrajectory.Goal()
-        goal.trajectory.joint_names = NAMES
+        goal.trajectory.joint_names = names
         target = [0.6, 0.2, 0.5, -0.2, 0.7, 0.1, 0.4, -0.1]
         point = JointTrajectoryPoint(positions=target)
         point.time_from_start.sec = 1
@@ -65,9 +72,9 @@ def test_trajectory(side, namespace, tmp_path):
         deadline = time.monotonic() + 2
         while time.monotonic() < deadline:
             rclpy.spin_once(node, timeout_sec=0.1)
-            if all(abs(feedback.get(n, -2) - v) < 0.007 for n, v in zip(NAMES, target)):
+            if all(abs(feedback.get(n, -2) - v) < 0.007 for n, v in zip(names, target)):
                 break
-        assert [feedback[n] for n in NAMES] == pytest.approx(target, abs=0.007)
+        assert [feedback[n] for n in names] == pytest.approx(target, abs=0.007)
         for i, sid in enumerate(bus.ids):
             flex, abd = target[i//2*2:i//2*2+2]
             angle = (-45 + 135*flex) * (1 if i % 2 == 0 else -1) + 47*abd

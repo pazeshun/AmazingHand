@@ -3,7 +3,7 @@
   <!--Pollen Robotics AmazingHand CAD assembly. See README.md (AmazingHand models) for source and simulator support.-->
   <model name="left_hand">
     <self_collide>false</self_collide>
-    <link name="palm_link">
+    <link name="l_palm_link">
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>-0.006 0 0.048 0 0 0</pose>
@@ -384,7 +384,7 @@
         </geometry>
       </collision>
     </link>
-    <link name="custom_servo_horn">
+    <link name="l_custom_servo_horn">
       <pose>-0.00755 -0.01845 0.0698 1.57079633 0 -1.57079633</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -435,7 +435,7 @@
         </material>
       </visual>
     </link>
-    <link name="ball_link">
+    <link name="l_ball_link">
       <pose>-0.00065 -0.01345 0.0698 -1.51192085 0.0923182717 -0.622562376</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -498,7 +498,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball">
+    <link name="l_rotule_ball">
       <pose>0.000684861566 -0.0167983443 0.102602542 -1.47831873 -0.0586244794 0.94280016</pose>
       <inertial>
         <pose>-0.0054579 -0.0141744 -0.00370248 0 0 0</pose>
@@ -574,7 +574,7 @@
         </material>
       </visual>
     </link>
-    <link name="std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default">
+    <link name="l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default">
       <pose>-0.00550001494 -0.0267500036 0.102208894 -1.57837342 -1.0219991 0.00646510889</pose>
       <inertial>
         <pose>-0.00530874 -0.00868244 0.00225 0 0 0</pose>
@@ -638,7 +638,7 @@
         </material>
       </visual>
     </link>
-    <link name="parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999">
+    <link name="l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999">
       <pose>0.0105200611 -0.0227606805 0.150085152 1.56321923 -1.0219991 0.00646510889</pose>
       <inertial>
         <pose>0.014571 -0.0133924 0.00225 0 0 0</pose>
@@ -724,7 +724,7 @@
         </material>
       </visual>
     </link>
-    <link name="parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b">
+    <link name="l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b">
       <pose>0.0154497987 -0.0293241448 0.146690882 -1.57842291 -1.02596226 0.00652305058</pose>
       <inertial>
         <pose>-0.0249171 -0.00392936 0.0052354 0 0 0</pose>
@@ -822,7 +822,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball_2">
+    <link name="l_rotule_ball_2">
       <pose>-0.00755 -0.03055 0.0698 -1.57079633 0 1.57079633</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -873,7 +873,7 @@
         </material>
       </visual>
     </link>
-    <link name="m2_rod_l18">
+    <link name="l_m2_rod_l18">
       <pose>-0.00065 -0.03555 0.0698 -1.65807589 -0.0223369841 -0.716267825</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -936,7 +936,7 @@
         </material>
       </visual>
     </link>
-    <link name="custom_servo_horn_2">
+    <link name="l_custom_servo_horn_2">
       <pose>-0.00755 0.0109301 0.0632994 1.57079633 -0.104719794 -1.57079633</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -987,7 +987,7 @@
         </material>
       </visual>
     </link>
-    <link name="ball_link_2">
+    <link name="l_ball_link_2">
       <pose>-0.00065 0.0159027095 0.0627767575 -1.53031029 0.00264354679 1.57950461</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -1050,7 +1050,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball_3">
+    <link name="l_rotule_ball_3">
       <pose>0.000684864568 0.0160015029 0.0957496005 -1.56815061 -0.0404858955 -3.13299145</pose>
       <inertial>
         <pose>0.000263719 -0.0141744 0.00658995 0 0 0</pose>
@@ -1126,7 +1126,7 @@
         </material>
       </visual>
     </link>
-    <link name="std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2">
+    <link name="l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2">
       <pose>-0.00549999466 0.00606323766 0.0963983393 -1.77697332 -1.01243869 0.175558582</pose>
       <inertial>
         <pose>-0.00530874 -0.00868244 0.00225 0 0 0</pose>
@@ -1190,7 +1190,7 @@
         </material>
       </visual>
     </link>
-    <link name="parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2">
+    <link name="l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2">
       <pose>0.0105200708 0.0150351015 0.143595329 1.36461934 -1.01243869 0.175558582</pose>
       <inertial>
         <pose>0.014571 -0.0133924 0.00225 0 0 0</pose>
@@ -1276,7 +1276,7 @@
         </material>
       </visual>
     </link>
-    <link name="parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2">
+    <link name="l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2">
       <pose>0.0154498036 0.00815278992 0.140905725 -1.7782819 -1.0163175 0.177099624</pose>
       <inertial>
         <pose>-0.0249171 -0.00392936 0.0052354 0 0 0</pose>
@@ -1374,7 +1374,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball_4">
+    <link name="l_rotule_ball_4">
       <pose>-0.00755 -0.00110358 0.0645642 -1.57079633 0.104719794 1.57079633</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -1425,7 +1425,7 @@
         </material>
       </visual>
     </link>
-    <link name="ball_link_3">
+    <link name="l_ball_link_3">
       <pose>-0.00065 -0.00607618946 0.0650868425 -1.528595 0.184845149 1.58025283</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -1488,7 +1488,7 @@
         </material>
       </visual>
     </link>
-    <link name="custom_servo_horn_3">
+    <link name="l_custom_servo_horn_3">
       <pose>-0.00755 0.0388192 0.0522246 1.57079633 -0.235618532 -1.57079633</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -1539,7 +1539,7 @@
         </material>
       </visual>
     </link>
-    <link name="ball_link_4">
+    <link name="l_ball_link_4">
       <pose>-0.00065 0.0436810507 0.0510573776 -1.68217072 -0.0847388964 -0.942277011</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -1602,7 +1602,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball_5">
+    <link name="l_rotule_ball_5">
       <pose>0.000684862548 0.0480827903 0.0837352422 -1.65606097 0.110973114 0.619053975</pose>
       <inertial>
         <pose>-0.0040321 -0.0141744 -0.00521911 0 0 0</pose>
@@ -1678,7 +1678,7 @@
         </material>
       </visual>
     </link>
-    <link name="std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3">
+    <link name="l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3">
       <pose>-0.00549998673 0.0383142355 0.085675624 -2.00872427 -0.976945978 0.370191565</pose>
       <inertial>
         <pose>-0.00530874 -0.00868244 0.00225 0 0 0</pose>
@@ -1742,7 +1742,7 @@
         </material>
       </visual>
     </link>
-    <link name="parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3">
+    <link name="l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3">
       <pose>0.0105200706 0.0533697423 0.131297789 1.13286838 -0.976945978 0.370191565</pose>
       <inertial>
         <pose>0.014571 -0.0133924 0.00225 0 0 0</pose>
@@ -1828,7 +1828,7 @@
         </geometry>
       </collision>
     </link>
-    <link name="parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3">
+    <link name="l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3">
       <pose>0.0154498035 0.0461952461 0.129529516 -2.01122998 -0.98053315 0.373211228</pose>
       <inertial>
         <pose>-0.0249171 -0.00392936 0.0052354 0 0 0</pose>
@@ -1926,7 +1926,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball_6">
+    <link name="l_rotule_ball_6">
       <pose>-0.00755 0.0270535 0.0550493 -1.57079633 0.235618532 1.57079633</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -1977,7 +1977,7 @@
         </material>
       </visual>
     </link>
-    <link name="ball_link_5">
+    <link name="l_ball_link_5">
       <pose>-0.00065 0.0221916493 0.0562165224 -1.77355069 0.247497474 0.743132084</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -2040,7 +2040,7 @@
         </material>
       </visual>
     </link>
-    <link name="custom_servo_horn_4">
+    <link name="l_custom_servo_horn_4">
       <pose>-0.00443741 -0.0191037 0.03365 3.14159265 0 1.22172981</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -2091,7 +2091,7 @@
         </material>
       </visual>
     </link>
-    <link name="ball_link_6">
+    <link name="l_ball_link_6">
       <pose>-0.00614751384 -0.023802162 0.04055 -0.0406086281 0.0851239015 1.31999893</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -2154,7 +2154,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball_7">
+    <link name="l_rotule_ball_7">
       <pose>0.0258219894 -0.0318748936 0.0418848655 -0.444076059 -1.47650341 1.76580465</pose>
       <inertial>
         <pose>0.00035539 -0.0141744 -0.00658564 0 0 0</pose>
@@ -2230,7 +2230,7 @@
         </material>
       </visual>
     </link>
-    <link name="std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4">
+    <link name="l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4">
       <pose>0.0288557511 -0.0223887719 0.0356999996 1.57079622 -0.548785581 -0.353019606</pose>
       <inertial>
         <pose>-0.00530874 -0.00868244 0.00225 0 0 0</pose>
@@ -2294,7 +2294,7 @@
         </material>
       </visual>
     </link>
-    <link name="parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4">
+    <link name="l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4">
       <pose>0.0724802818 -0.0425121591 0.0517200745 -1.57079644 -0.548785581 -0.353019606</pose>
       <inertial>
         <pose>0.014571 -0.0133924 0.00225 0 0 0</pose>
@@ -2380,7 +2380,7 @@
         </material>
       </visual>
     </link>
-    <link name="parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4">
+    <link name="l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4">
       <pose>0.0715355524 -0.0351836047 0.0566498033 1.57079622 -0.544822299 -0.353019607</pose>
       <inertial>
         <pose>-0.0249171 -0.00392936 0.0052354 0 0 0</pose>
@@ -2478,7 +2478,7 @@
         </material>
       </visual>
     </link>
-    <link name="rotule_ball_8">
+    <link name="l_rotule_ball_8">
       <pose>-0.000298971 -0.00773341 0.03365 -3.14159265 0 -1.91986284</pose>
       <inertial>
         <pose>-0.005 0 -0.00655938 0 0 0</pose>
@@ -2529,7 +2529,7 @@
         </material>
       </visual>
     </link>
-    <link name="ball_link_7">
+    <link name="l_ball_link_7">
       <pose>0.00141113284 -0.00303494803 0.04055 -0.0404724562 -0.0233402093 1.14216524</pose>
       <inertial>
         <pose>0 -0.0165 0 0 0 0</pose>
@@ -2592,13 +2592,13 @@
         </material>
       </visual>
     </link>
-    <joint name="wrist_fixed" type="fixed">
+    <joint name="l_wrist_fixed" type="fixed">
       <parent>world</parent>
-      <child>palm_link</child>
+      <child>l_palm_link</child>
     </joint>
-    <joint name="finger1_motor1" type="revolute">
-      <parent>palm_link</parent>
-      <child>custom_servo_horn</child>
+    <joint name="l_finger1_motor1" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_custom_servo_horn</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2612,17 +2612,17 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball1" type="ball">
-      <parent>custom_servo_horn</parent>
-      <child>ball_link</child>
+    <joint name="l_passive_ball1" type="ball">
+      <parent>l_custom_servo_horn</parent>
+      <child>l_ball_link</child>
     </joint>
-    <joint name="passive_ball2" type="ball">
-      <parent>ball_link</parent>
-      <child>rotule_ball</child>
+    <joint name="l_passive_ball2" type="ball">
+      <parent>l_ball_link</parent>
+      <child>l_rotule_ball</child>
     </joint>
-    <joint name="passive2_1" type="revolute">
-      <parent>rotule_ball</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default</child>
+    <joint name="l_passive2_1" type="revolute">
+      <parent>l_rotule_ball</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2630,9 +2630,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive4_1" type="revolute">
-      <parent>rotule_ball</parent>
-      <child>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999</child>
+    <joint name="l_passive4_1" type="revolute">
+      <parent>l_rotule_ball</parent>
+      <child>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2640,9 +2640,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive_5_1" type="revolute">
-      <parent>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b</child>
+    <joint name="l_passive_5_1" type="revolute">
+      <parent>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2650,9 +2650,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger1_motor2" type="revolute">
-      <parent>palm_link</parent>
-      <child>rotule_ball_2</child>
+    <joint name="l_finger1_motor2" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_rotule_ball_2</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2666,13 +2666,13 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball3" type="ball">
-      <parent>rotule_ball_2</parent>
-      <child>m2_rod_l18</child>
+    <joint name="l_passive_ball3" type="ball">
+      <parent>l_rotule_ball_2</parent>
+      <child>l_m2_rod_l18</child>
     </joint>
-    <joint name="finger2_motor1" type="revolute">
-      <parent>palm_link</parent>
-      <child>custom_servo_horn_2</child>
+    <joint name="l_finger2_motor1" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_custom_servo_horn_2</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2686,17 +2686,17 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball4" type="ball">
-      <parent>custom_servo_horn_2</parent>
-      <child>ball_link_2</child>
+    <joint name="l_passive_ball4" type="ball">
+      <parent>l_custom_servo_horn_2</parent>
+      <child>l_ball_link_2</child>
     </joint>
-    <joint name="passive_ball5" type="ball">
-      <parent>ball_link_2</parent>
-      <child>rotule_ball_3</child>
+    <joint name="l_passive_ball5" type="ball">
+      <parent>l_ball_link_2</parent>
+      <child>l_rotule_ball_3</child>
     </joint>
-    <joint name="passive2_2" type="revolute">
-      <parent>rotule_ball_3</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2</child>
+    <joint name="l_passive2_2" type="revolute">
+      <parent>l_rotule_ball_3</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2704,9 +2704,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive4_2" type="revolute">
-      <parent>rotule_ball_3</parent>
-      <child>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2</child>
+    <joint name="l_passive4_2" type="revolute">
+      <parent>l_rotule_ball_3</parent>
+      <child>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2714,9 +2714,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive_5_2" type="revolute">
-      <parent>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2</child>
+    <joint name="l_passive_5_2" type="revolute">
+      <parent>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2724,9 +2724,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger2_motor2" type="revolute">
-      <parent>palm_link</parent>
-      <child>rotule_ball_4</child>
+    <joint name="l_finger2_motor2" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_rotule_ball_4</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2740,13 +2740,13 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball6" type="ball">
-      <parent>rotule_ball_4</parent>
-      <child>ball_link_3</child>
+    <joint name="l_passive_ball6" type="ball">
+      <parent>l_rotule_ball_4</parent>
+      <child>l_ball_link_3</child>
     </joint>
-    <joint name="finger3_motor1" type="revolute">
-      <parent>palm_link</parent>
-      <child>custom_servo_horn_3</child>
+    <joint name="l_finger3_motor1" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_custom_servo_horn_3</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2760,17 +2760,17 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball7" type="ball">
-      <parent>custom_servo_horn_3</parent>
-      <child>ball_link_4</child>
+    <joint name="l_passive_ball7" type="ball">
+      <parent>l_custom_servo_horn_3</parent>
+      <child>l_ball_link_4</child>
     </joint>
-    <joint name="passive_ball8" type="ball">
-      <parent>ball_link_4</parent>
-      <child>rotule_ball_5</child>
+    <joint name="l_passive_ball8" type="ball">
+      <parent>l_ball_link_4</parent>
+      <child>l_rotule_ball_5</child>
     </joint>
-    <joint name="passive2_3" type="revolute">
-      <parent>rotule_ball_5</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3</child>
+    <joint name="l_passive2_3" type="revolute">
+      <parent>l_rotule_ball_5</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2778,9 +2778,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive4_3" type="revolute">
-      <parent>rotule_ball_5</parent>
-      <child>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3</child>
+    <joint name="l_passive4_3" type="revolute">
+      <parent>l_rotule_ball_5</parent>
+      <child>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2788,9 +2788,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive_5_3" type="revolute">
-      <parent>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3</child>
+    <joint name="l_passive_5_3" type="revolute">
+      <parent>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2798,9 +2798,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger3_motor2" type="revolute">
-      <parent>palm_link</parent>
-      <child>rotule_ball_6</child>
+    <joint name="l_finger3_motor2" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_rotule_ball_6</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2814,13 +2814,13 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball9" type="ball">
-      <parent>rotule_ball_6</parent>
-      <child>ball_link_5</child>
+    <joint name="l_passive_ball9" type="ball">
+      <parent>l_rotule_ball_6</parent>
+      <child>l_ball_link_5</child>
     </joint>
-    <joint name="finger4_motor1" type="revolute">
-      <parent>palm_link</parent>
-      <child>custom_servo_horn_4</child>
+    <joint name="l_finger4_motor1" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_custom_servo_horn_4</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2834,17 +2834,17 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball10" type="ball">
-      <parent>custom_servo_horn_4</parent>
-      <child>ball_link_6</child>
+    <joint name="l_passive_ball10" type="ball">
+      <parent>l_custom_servo_horn_4</parent>
+      <child>l_ball_link_6</child>
     </joint>
-    <joint name="passive_ball11" type="ball">
-      <parent>ball_link_6</parent>
-      <child>rotule_ball_7</child>
+    <joint name="l_passive_ball11" type="ball">
+      <parent>l_ball_link_6</parent>
+      <child>l_rotule_ball_7</child>
     </joint>
-    <joint name="passive2_4" type="revolute">
-      <parent>rotule_ball_7</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4</child>
+    <joint name="l_passive2_4" type="revolute">
+      <parent>l_rotule_ball_7</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2852,9 +2852,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive4_4" type="revolute">
-      <parent>rotule_ball_7</parent>
-      <child>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4</child>
+    <joint name="l_passive4_4" type="revolute">
+      <parent>l_rotule_ball_7</parent>
+      <child>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2862,9 +2862,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="passive_5_4" type="revolute">
-      <parent>parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4</child>
+    <joint name="l_passive_5_4" type="revolute">
+      <parent>l_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2872,9 +2872,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger4_motor2" type="revolute">
-      <parent>palm_link</parent>
-      <child>rotule_ball_8</child>
+    <joint name="l_finger4_motor2" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_rotule_ball_8</child>
       <axis>
         <xyz>0 0 1</xyz>
         <dynamics>
@@ -2888,13 +2888,13 @@
         </limit>
       </axis>
     </joint>
-    <joint name="passive_ball12" type="ball">
-      <parent>rotule_ball_8</parent>
-      <child>ball_link_7</child>
+    <joint name="l_passive_ball12" type="ball">
+      <parent>l_rotule_ball_8</parent>
+      <child>l_ball_link_7</child>
     </joint>
-    <joint name="finger1_gimbal_closure" type="revolute">
-      <parent>palm_link</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default</child>
+    <joint name="l_finger1_gimbal_closure" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default</child>
       <pose>-0.00495567188 -0.00810499872 0.00225002741 -1.57062964 1.56684368 2.59297488</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2903,9 +2903,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger1_proximal_closure" type="revolute">
-      <parent>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b</child>
+    <joint name="l_finger1_proximal_closure" type="revolute">
+      <parent>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b</child>
       <pose>-0.0520000318 -7.67703651e-10 -4.38086397e-08 0 0 -0.544821298</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2914,14 +2914,14 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger1_rod_closure" type="ball">
-      <parent>rotule_ball</parent>
-      <child>m2_rod_l18</child>
+    <joint name="l_finger1_rod_closure" type="ball">
+      <parent>l_rotule_ball</parent>
+      <child>l_m2_rod_l18</child>
       <pose>2.97550319e-09 -0.0330000037 1.35383754e-08 0.677041426 -0.273543324 -1.13068004</pose>
     </joint>
-    <joint name="finger2_gimbal_closure" type="revolute">
-      <parent>palm_link</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2</child>
+    <joint name="l_finger2_gimbal_closure" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2</child>
       <pose>-0.00495568552 -0.00810501603 0.00225003525 -1.57080991 1.56684326 2.59279458</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2930,9 +2930,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger2_proximal_closure" type="revolute">
-      <parent>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2</child>
+    <joint name="l_finger2_proximal_closure" type="revolute">
+      <parent>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2</child>
       <pose>-0.0520000229 1.128035e-08 3.48869978e-09 0 0 -0.544821298</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2941,14 +2941,14 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger2_rod_closure" type="ball">
-      <parent>rotule_ball_3</parent>
-      <child>ball_link_3</child>
+    <joint name="l_finger2_rod_closure" type="ball">
+      <parent>l_rotule_ball_3</parent>
+      <child>l_ball_link_3</child>
       <pose>-5.93390512e-08 -0.0329999837 -1.67224067e-10 -1.58351112 -1.06303145 -1.63618091</pose>
     </joint>
-    <joint name="finger3_gimbal_closure" type="revolute">
-      <parent>palm_link</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3</child>
+    <joint name="l_finger3_gimbal_closure" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3</child>
       <pose>-0.00495570712 -0.00810501166 0.00225003251 -1.57076591 1.56684211 2.59283825</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2957,9 +2957,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger3_proximal_closure" type="revolute">
-      <parent>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3</child>
+    <joint name="l_finger3_proximal_closure" type="revolute">
+      <parent>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3</child>
       <pose>-0.0520000193 3.63313249e-08 6.30107312e-08 0 0 -0.544821298</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2968,14 +2968,14 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger3_rod_closure" type="ball">
-      <parent>rotule_ball_5</parent>
-      <child>ball_link_5</child>
+    <joint name="l_finger3_rod_closure" type="ball">
+      <parent>l_rotule_ball_5</parent>
+      <child>l_ball_link_5</child>
       <pose>2.4285744e-08 -0.0329999833 -9.37920087e-09 2.64500219 -0.621955641 -2.50186636</pose>
     </joint>
-    <joint name="finger4_gimbal_closure" type="revolute">
-      <parent>palm_link</parent>
-      <child>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4</child>
+    <joint name="l_finger4_gimbal_closure" type="revolute">
+      <parent>l_palm_link</parent>
+      <child>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4</child>
       <pose>-0.00495573746 -0.0081049777 0.00224999733 -1.57081973 1.56684318 2.59278366</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2984,9 +2984,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger4_proximal_closure" type="revolute">
-      <parent>std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4</parent>
-      <child>parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4</child>
+    <joint name="l_finger4_proximal_closure" type="revolute">
+      <parent>l_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4</parent>
+      <child>l_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4</child>
       <pose>-0.0520000163 5.78117124e-08 -7.30683002e-09 0 0 -0.544821298</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -2995,9 +2995,9 @@
         </dynamics>
       </axis>
     </joint>
-    <joint name="finger4_rod_closure" type="ball">
-      <parent>rotule_ball_7</parent>
-      <child>ball_link_7</child>
+    <joint name="l_finger4_rod_closure" type="ball">
+      <parent>l_rotule_ball_7</parent>
+      <child>l_ball_link_7</child>
       <pose>2.90025118e-08 -0.033000009 -5.36558102e-09 -1.59389468 -0.506544037 -1.4830791</pose>
     </joint>
   </model>

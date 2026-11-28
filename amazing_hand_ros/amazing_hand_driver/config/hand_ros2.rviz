@@ -3,7 +3,7 @@ Panels:
     Name: Displays
 Visualization Manager:
   Global Options:
-    Fixed Frame: amazing_hand/hand_base
+    Fixed Frame: amazing_hand/r_hand_base
   Displays:
     - Class: rviz_default_plugins/RobotModel
       Name: Hand

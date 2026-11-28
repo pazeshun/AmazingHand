@@ -39,37 +39,36 @@
   </xacro:macro>
 
   <xacro:macro name="amazinghand_finger"
-               params="hand_name finger_name parent finger_data covers">
+               params="finger_name parent finger_data covers">
 
-    <xacro:property name="jname"   value="${hand_name}_${finger_name}" />
-    <xacro:property name="flex_j"  value="${jname}_flexion" />
-    <xacro:property name="abd_j"   value="${jname}_abduction" />
+    <xacro:property name="flex_j"  value="${finger_name}_flexion" />
+    <xacro:property name="abd_j"   value="${finger_name}_abduction" />
     <!-- The CAD reference is the zero-motor pose, at flexion_level = 1/3. -->
     <xacro:property name="flexion_scale" value="${pi / 2}"/>
     <xacro:property name="flexion_offset" value="${-flexion_scale / 3}"/>
 
-    <xacro:amazinghand_link name="${jname}_base_link" link_data="${finger_data.gimbal}" covers="${covers}"/>
+    <xacro:amazinghand_link name="${finger_name}_base_link" link_data="${finger_data.gimbal}" covers="${covers}"/>
 
     <!-- Proximal phalanx -->
-    <xacro:amazinghand_link name="${jname}_proximal_link" link_data="${finger_data.proximal}" covers="${covers}"/>
+    <xacro:amazinghand_link name="${finger_name}_proximal_link" link_data="${finger_data.proximal}" covers="${covers}"/>
 
     <!-- Distal phalanx -->
-    <xacro:amazinghand_link name="${jname}_distal_link" link_data="${finger_data.distal}" covers="${covers}"/>
-    <xacro:amazinghand_link name="${jname}_coupler_link" link_data="${finger_data.coupler}" covers="${covers}"/>
-    <link name="${jname}_tip_link"/>
+    <xacro:amazinghand_link name="${finger_name}_distal_link" link_data="${finger_data.distal}" covers="${covers}"/>
+    <xacro:amazinghand_link name="${finger_name}_coupler_link" link_data="${finger_data.coupler}" covers="${covers}"/>
+    <link name="${finger_name}_tip_link"/>
 
-    <link name="${jname}_mount_link"/>
+    <link name="${finger_name}_mount_link"/>
     <!-- Parent base joint (fixed, positional offset on the palm)         -->
-    <joint name="${jname}_mount_joint" type="fixed">
+    <joint name="${finger_name}_mount_joint" type="fixed">
       <parent link="${parent}"/>
-      <child  link="${jname}_mount_link"/>
+      <child  link="${finger_name}_mount_link"/>
       <origin xyz="${finger_data.abduction.xyz}" rpy="${finger_data.abduction.rpy}"/>
     </joint>
 
     <!-- Abduction joint (lateral spread around the mount Z axis) -->
     <joint name="${abd_j}" type="revolute">
-      <parent link="${jname}_mount_link"/>
-      <child link="${jname}_base_link"/>
+      <parent link="${finger_name}_mount_link"/>
+      <child link="${finger_name}_base_link"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <!-- Both hands use the same two-servo finger assembly and motor-sum sign. -->
       <axis xyz="0 0 1"/>
@@ -80,8 +79,8 @@
 
     <!-- Flexion joint (curl around the joint's local Z axis) -->
     <joint name="${flex_j}" type="revolute">
-      <parent link="${jname}_base_link"/>
-      <child link="${jname}_proximal_link"/>
+      <parent link="${finger_name}_base_link"/>
+      <child link="${finger_name}_proximal_link"/>
       <origin xyz="${finger_data.flexion.xyz}" rpy="${finger_data.flexion.rpy}"/>
       <axis xyz="0 0 1"/>
       <limit lower="-1.5708" upper="1.5708" effort="1.0" velocity="3.14"/>
@@ -91,27 +90,27 @@
 
     <!-- Drive each visual hinge from the published flexion level so TF does
          not depend on the order in which mimic joints are evaluated. -->
-    <joint name="${jname}_distal_hinge" type="revolute">
-      <parent link="${jname}_proximal_link"/>
-      <child link="${jname}_distal_link"/>
+    <joint name="${finger_name}_distal_hinge" type="revolute">
+      <parent link="${finger_name}_proximal_link"/>
+      <child link="${finger_name}_distal_link"/>
       <origin xyz="${finger_data.distal_joint.xyz}" rpy="${finger_data.distal_joint.rpy}"/>
       <axis xyz="0 0 1"/>
       <limit lower="${-1.5708 * finger_data.distal_ratio}" upper="${1.5708 * finger_data.distal_ratio}"
              effort="1.0" velocity="${3.14 * finger_data.distal_ratio}"/>
       <mimic joint="${finger_name}_flexion_level" multiplier="${flexion_scale * finger_data.distal_ratio}" offset="${flexion_offset * finger_data.distal_ratio}"/>
     </joint>
-    <joint name="${jname}_coupler_hinge" type="revolute">
-      <parent link="${jname}_base_link"/>
-      <child link="${jname}_coupler_link"/>
+    <joint name="${finger_name}_coupler_hinge" type="revolute">
+      <parent link="${finger_name}_base_link"/>
+      <child link="${finger_name}_coupler_link"/>
       <origin xyz="${finger_data.coupler_joint.xyz}" rpy="${finger_data.coupler_joint.rpy}"/>
       <axis xyz="${finger_data.coupler_axis}"/>
       <limit lower="${-1.5708 * finger_data.coupler_ratio}" upper="${1.5708 * finger_data.coupler_ratio}"
              effort="1.0" velocity="${3.14 * finger_data.coupler_ratio}"/>
       <mimic joint="${finger_name}_flexion_level" multiplier="${flexion_scale * finger_data.coupler_ratio}" offset="${flexion_offset * finger_data.coupler_ratio}"/>
     </joint>
-    <joint name="${jname}_tip_joint" type="fixed">
-      <parent link="${jname}_distal_link"/>
-      <child link="${jname}_tip_link"/>
+    <joint name="${finger_name}_tip_joint" type="fixed">
+      <parent link="${finger_name}_distal_link"/>
+      <child link="${finger_name}_tip_link"/>
       <origin xyz="${finger_data.tip.xyz}" rpy="${finger_data.tip.rpy}"/>
     </joint>
 

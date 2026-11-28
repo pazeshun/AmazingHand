@@ -8,9 +8,13 @@ import threading
 
 STEP = math.radians(300) / 1024
 MIDDLE = [3, 0, -5, -8, -2, 5, -12, 0]
-NAMES = [finger + "_" + axis + "_level"
-         for finger in ("index", "middle", "ring", "thumb")
-         for axis in ("flexion", "abduction")]
+
+
+def joint_names(side):
+    prefix = "r_" if side == 1 else "l_"
+    return [prefix + finger + "_" + axis + "_level"
+            for finger in ("index", "middle", "ring", "thumb")
+            for axis in ("flexion", "abduction")]
 
 
 class ServoBus:

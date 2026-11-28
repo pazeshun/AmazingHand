@@ -137,10 +137,10 @@ shows the fingers following a flexion command in Gazebo and RViz.
 
 | Argument | Default | Meaning |
 | --- | --- | --- |
-| `side` | `1` | Hand model and default ID mapping (1 = right, 2 = left) |
+| `side` | `1` | Hand model, link and joint prefix, and default servo IDs (1 = right, `r_`; 2 = left, `l_`) |
 | `servo_ids` | Mapping for `side` | Eight unique physical IDs (0–253) in finger/motor order |
 | `middle_pos` | Required for hardware | Eight measured angles for the connected hand in degrees, in ascending physical servo ID order. Simulation ignores this argument. |
-| `namespace` | `amazing_hand` | Scopes the controllers, topics and action. For example, `namespace:=robot/left_hand` places feedback at `/robot/left_hand/joint_states`. Joint names stay the same. |
+| `namespace` | `amazing_hand` | Scopes the controllers, topics and action. For example, `namespace:=robot/left_hand` places feedback at `/robot/left_hand/joint_states`. |
 | `port`, `baudrate` | `/dev/ttyACM0`, `1000000` | Serial device and bus speed in bits/s |
 | `serial_timeout` | `0.05` | Packet timeout in seconds, greater than 0 and at most 5 |
 | `control_rate` | `50` | Hardware loop frequency in Hz, greater than 0 and at most 1000. ROS 2 requires a whole number. |
@@ -179,7 +179,8 @@ gestures follow the left hand's orientation. The default namespace is
 
 In another terminal, source the same workspace. Try the following in simulation
 first. Each command moves **all four fingers** to flexion 0.6 and centered
-abduction over three seconds. The controller requires all eight joints. Set
+abduction over three seconds. The controller requires all eight joints. These
+examples use the right-hand prefix `r_`. For a left hand, use `l_` instead. Set
 `ns` to the hand namespace you launched.
 
 **ROS 1** — publish one trajectory to the controller's command topic, then read
@@ -188,8 +189,8 @@ one measured joint state. Publishing returns after sending the message.
 ```bash
 ns=/amazing_hand
 rostopic pub -1 "$ns/position_joint_trajectory_controller/command" trajectory_msgs/JointTrajectory '
-joint_names: [index_flexion_level, index_abduction_level, middle_flexion_level, middle_abduction_level,
-              ring_flexion_level, ring_abduction_level, thumb_flexion_level, thumb_abduction_level]
+joint_names: [r_index_flexion_level, r_index_abduction_level, r_middle_flexion_level, r_middle_abduction_level,
+              r_ring_flexion_level, r_ring_abduction_level, r_thumb_flexion_level, r_thumb_abduction_level]
 points:
   - positions: [0.6, 0, 0.6, 0, 0.6, 0, 0.6, 0]
     time_from_start: {secs: 3, nsecs: 0}'
@@ -205,8 +206,8 @@ ns=/amazing_hand
 ros2 action send_goal "$ns/position_joint_trajectory_controller/follow_joint_trajectory" \
   control_msgs/action/FollowJointTrajectory '
 trajectory:
-  joint_names: [index_flexion_level, index_abduction_level, middle_flexion_level, middle_abduction_level,
-                ring_flexion_level, ring_abduction_level, thumb_flexion_level, thumb_abduction_level]
+  joint_names: [r_index_flexion_level, r_index_abduction_level, r_middle_flexion_level, r_middle_abduction_level,
+                r_ring_flexion_level, r_ring_abduction_level, r_thumb_flexion_level, r_thumb_abduction_level]
   points:
     - positions: [0.6, 0, 0.6, 0, 0.6, 0, 0.6, 0]
       time_from_start: {sec: 3, nanosec: 0}'
@@ -302,7 +303,8 @@ Names are relative to the hand namespace (default `/amazing_hand`).
 The ROS 2 launch file remaps the controller topics to the names above. Set
 controller rates and trajectory tolerances in [ros_controllers.yaml](amazing_hand_driver/config/ros_controllers.yaml)
 for ROS 1 or [ros2_controllers.yaml](amazing_hand_driver/config/ros2_controllers.yaml)
-for ROS 2.
+for ROS 2. Launch expands the selected hand prefix in the joint names and
+tolerance keys.
 
 ### Troubleshooting
 
@@ -429,8 +431,9 @@ to inspect the internal geometry.
 python -m mujoco.viewer --mjcf="$share/mjcf/right_hand.xml"
 ```
 
-Use `left_hand.xml` for the left hand. Motor names range from
-`finger1_motor1` to `finger4_motor2`, in index, middle, ring, and thumb order.
+Use `left_hand.xml` for the left hand. The right-hand motor names range from
+`r_finger1_motor1` to `r_finger4_motor2`, in index, middle, ring, and thumb order.
+Left-hand motor names use the `l_` prefix.
 
 ## Licenses and attribution
 

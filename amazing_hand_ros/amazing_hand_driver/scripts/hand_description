@@ -14,6 +14,7 @@ def main():
                  'port', 'baudrate', 'serial_timeout', 'goal_speed', 'motor_min_deg',
                  'motor_max_deg', 'disable_torque_on_shutdown'):
         parser.add_argument(name)
+    parser.add_argument('--controllers-file', help='Resolved ROS 2 controller YAML for Gazebo')
     args = parser.parse_args()
     side = int(args.side)
     if side not in (1, 2):
@@ -27,6 +28,10 @@ def main():
                                      'motor_min_deg', 'motor_max_deg', 'disable_torque_on_shutdown')}
     mappings.update(hand_name='right_hand' if side == 1 else 'left_hand',
                     use_sim=args.use_sim.lower(), namespace='/' + ns)
+    if args.controllers_file:
+        mappings['controllers_file'] = args.controllers_file
+    elif mappings['use_sim'] in ('true', '1'):
+        parser.error('--controllers-file must point to the resolved controller YAML for Gazebo')
     if mappings['use_sim'] == 'false':
         ids, angles = calibration(side, args.servo_ids, args.middle_pos)
         by_id = dict(zip(sorted(ids), angles))

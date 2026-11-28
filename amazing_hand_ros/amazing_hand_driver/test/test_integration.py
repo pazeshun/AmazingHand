@@ -18,11 +18,12 @@ from controller_manager_msgs.srv import ListControllers
 from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectoryPoint
 
-from servo_bus import MIDDLE, NAMES, STEP, ServoBus
+from servo_bus import MIDDLE, STEP, ServoBus, joint_names
 
 
 class DriverIntegration(unittest.TestCase):
     def exercise(self, side, fault=False):
+        names = joint_names(side)
         bus = ServoBus(side)
         driver = None
         subscription = None
@@ -58,7 +59,7 @@ class DriverIntegration(unittest.TestCase):
                 self.assertEqual(writes[1:4], [(44, b"\0\0"), (46, (586).to_bytes(2, "big")), (40, b"\1")])
             target = [0.6, 0.2, 0.5, -0.2, 0.7, 0.1, 0.4, -0.1]
             goal = FollowJointTrajectoryGoal()
-            goal.trajectory.joint_names = NAMES
+            goal.trajectory.joint_names = names
             point = JointTrajectoryPoint()
             point.positions = target
             point.time_from_start = rospy.Duration(1.0)
@@ -68,7 +69,7 @@ class DriverIntegration(unittest.TestCase):
             self.assertEqual(client.get_result().error_code, 0)
             self.assertTrue(states)
             measured = dict(zip(states[-1].name, states[-1].position))
-            for name, expected in zip(NAMES, target):
+            for name, expected in zip(names, target):
                 self.assertAlmostEqual(measured[name], expected, delta=0.007)
             # Validate real wire targets, including left-hand ID/calibration permutation.
             for index, sid in enumerate(bus.ids):
@@ -126,11 +127,11 @@ class DriverIntegration(unittest.TestCase):
                 self.assertEqual(config.params[private + "servo_ids"].value, ids)
                 self.assertEqual(config.params[private + "middle_pos"].value, calibration)
                 model = ET.fromstring(config.params[namespace + "/robot_description"].value)
-                hand = "right_hand" if side == 1 else "left_hand"
+                prefix = "r_" if side == 1 else "l_"
                 for finger in ("index", "middle", "ring", "thumb"):
-                    hinge = model.find(f"joint[@name='{hand}_{finger}_abduction']")
+                    hinge = model.find(f"joint[@name='{prefix}{finger}_abduction']")
                     mimic = hinge.find("mimic")
-                    self.assertEqual(mimic.get("joint"), finger + "_abduction_level")
+                    self.assertEqual(mimic.get("joint"), prefix + finger + "_abduction_level")
                     # Increasing both servo angles rotates the identical finger
                     # assembly around its local +Z on either palm.
                     axis_z = float(hinge.find("axis").get("xyz").split()[2])

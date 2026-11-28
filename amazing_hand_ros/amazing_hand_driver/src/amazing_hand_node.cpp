@@ -61,7 +61,8 @@ class Hand : public hardware_interface::RobotHW {
             "Expected four differential transmissions");
     ti::DifferentialTransmissionLoader loader;
     for (std::size_t finger = 0; finger < 4; ++finger) {
-      const auto name = fingers[finger] + "_transmission";
+      const auto finger_name = (side == 1 ? "r_" : "l_") + fingers[finger];
+      const auto name = finger_name + "_transmission";
       const auto it = std::find_if(info.begin(), info.end(), [&](const ti::TransmissionInfo& t) { return t.name_ == name; });
       require(it != info.end() && it->type_ == "transmission_interface/DifferentialTransmission",
               "Missing differential transmission " + name);
@@ -70,7 +71,7 @@ class Hand : public hardware_interface::RobotHW {
       require(static_cast<bool>(transmission_[finger]), "Failed to load " + name);
       for (std::size_t axis = 0; axis < 2; ++axis) {
         const std::size_t i = 2 * finger + axis;
-        const auto joint_name = fingers[finger] + (axis == 0 ? "_flexion_level" : "_abduction_level");
+        const auto joint_name = finger_name + (axis == 0 ? "_flexion_level" : "_abduction_level");
         const auto joint = model.getJoint(joint_name);
         require(joint && joint->limits, "Missing joint limits for " + joint_name);
         // Data order follows DifferentialTransmission roles, independently of XML order.
@@ -78,7 +79,7 @@ class Hand : public hardware_interface::RobotHW {
             [&](const ti::JointInfo& j) { return j.name_ == joint_name; });
         require(jt != it->joints_.end() && jt->role_ == (axis == 0 ? "joint1" : "joint2"),
                 "Unexpected joint role for " + joint_name);
-        const auto actuator_name = fingers[finger] + "_motor_" + std::to_string(axis + 1);
+        const auto actuator_name = finger_name + "_motor_" + std::to_string(axis + 1);
         const auto at = std::find_if(it->actuators_.begin(), it->actuators_.end(),
             [&](const ti::ActuatorInfo& a) { return a.name_ == actuator_name; });
         require(at != it->actuators_.end(), "Missing actuator " + actuator_name);

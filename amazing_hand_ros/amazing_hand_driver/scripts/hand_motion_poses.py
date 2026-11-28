@@ -1,9 +1,12 @@
 """Finger poses and command-line options shared by the hand motion demos."""
 import argparse
 
-JOINT_NAMES = [f"{finger}_{motion}_level"
-               for finger in ("index", "middle", "ring", "thumb")
-               for motion in ("flexion", "abduction")]
+
+def joint_names(side):
+    prefix = "r_" if side == 1 else "l_"
+    return [f"{prefix}{finger}_{motion}_level"
+            for finger in ("index", "middle", "ring", "thumb")
+            for motion in ("flexion", "abduction")]
 
 
 def options(argv):

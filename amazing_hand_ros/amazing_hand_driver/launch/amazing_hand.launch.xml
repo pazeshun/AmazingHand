@@ -17,8 +17,10 @@
   <arg name="use_rviz" default="false" description="Open RViz to display the hand pose."/>
   <arg name="rqt" default="false" description="Open the rqt joint trajectory controller sliders."/>
 
+  <let name="side_prefix" value="$(eval &quot;'l_' if int('$(var side)') == 2 else 'r_'&quot;)"/>
+  <include file="$(find-pkg-share amazing_hand_driver)/launch/controller_params.launch.py"/>
   <let name="generate" value="$(exec-in-pkg hand_description amazing_hand_driver)"/>
-  <let name="description" value="$(command '$(var generate) &quot;$(var side)&quot; &quot;$(var servo_ids)&quot; &quot;$(var middle_pos)&quot; $(var control_rate) &quot;$(var namespace)&quot; $(var use_sim) &quot;$(var port)&quot; $(var baudrate) $(var serial_timeout) $(var goal_speed) $(var motor_min_deg) $(var motor_max_deg) $(var disable_torque_on_shutdown)')"/>
+  <let name="description" value="$(command '$(var generate) &quot;$(var side)&quot; &quot;$(var servo_ids)&quot; &quot;$(var middle_pos)&quot; $(var control_rate) &quot;$(var namespace)&quot; $(var use_sim) &quot;$(var port)&quot; $(var baudrate) $(var serial_timeout) $(var goal_speed) $(var motor_min_deg) $(var motor_max_deg) $(var disable_torque_on_shutdown) --controllers-file &quot;$(var controllers)&quot;')"/>
   <group>
     <push_ros_namespace namespace="$(var namespace)"/>
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
@@ -27,11 +29,11 @@
       <param name="use_sim_time" value="$(var use_sim)"/>
     </node>
     <node unless="$(var use_sim)" pkg="controller_manager" exec="ros2_control_node" on_exit="shutdown">
-      <param from="$(find-pkg-share amazing_hand_driver)/config/ros2_controllers.yaml"/>
+      <param from="$(var controllers)"/>
       <param name="update_rate" value="$(eval 'int(float($(var control_rate)))')"/>
     </node>
     <node pkg="controller_manager" exec="spawner" args="joint_state_controller -c controller_manager --controller-ros-args '-r /joint_states:=joint_states -r /dynamic_joint_states:=dynamic_joint_states'"/>
-    <node pkg="controller_manager" exec="spawner" args="position_joint_trajectory_controller -c controller_manager -p $(find-pkg-share amazing_hand_driver)/config/ros2_controllers.yaml --controller-ros-args '-r ~/joint_trajectory:=~/command -r ~/controller_state:=~/state'"/>
+    <node pkg="controller_manager" exec="spawner" args="position_joint_trajectory_controller -c controller_manager -p $(var controllers) --controller-ros-args '-r ~/joint_trajectory:=~/command -r ~/controller_state:=~/state'"/>
     <node if="$(var use_sim)" pkg="ros_gz_sim" exec="create" args="-world empty -topic robot_description -name amazing_hand"/>
   </group>
 
@@ -48,5 +50,7 @@
     <remap from="position_joint_trajectory_controller/controller_state" to="position_joint_trajectory_controller/state"/>
     <remap from="position_joint_trajectory_controller/joint_trajectory" to="position_joint_trajectory_controller/command"/>
   </node>
-  <include if="$(var use_rviz)" file="$(find-pkg-share amazing_hand_driver)/launch/hand_rviz.launch.xml"/>
+  <include if="$(var use_rviz)" file="$(find-pkg-share amazing_hand_driver)/launch/hand_rviz.launch.xml">
+    <arg name="side" value="$(var side)"/>
+  </include>
 </launch>

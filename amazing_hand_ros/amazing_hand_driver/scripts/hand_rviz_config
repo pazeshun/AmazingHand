@@ -17,7 +17,8 @@ def main():
         template = Path(get_package_share_directory('amazing_hand_driver')) / 'config/hand_ros2.rviz'
     config = yaml.safe_load(template.read_text())
     manager = config['Visualization Manager']
-    manager['Global Options']['Fixed Frame'] = '/'.join(filter(None, (namespace, 'hand_base')))
+    base_frame = 'r_hand_base' if int(os.environ['HAND_RVIZ_SIDE']) == 1 else 'l_hand_base'
+    manager['Global Options']['Fixed Frame'] = '/'.join(filter(None, (namespace, base_frame)))
     manager['Displays'][0]['TF Prefix'] = namespace
 
     if os.environ['ROS_VERSION'] == '1':

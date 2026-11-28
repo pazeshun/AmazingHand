@@ -4,7 +4,7 @@
   <xacro:include filename="$(find amazing_hand_description)/urdf/amazing_hand.urdf.xacro"/>
   <xacro:if value="$(arg use_sim)">
     <gazebo><plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-      <parameters>$(find amazing_hand_driver)/config/ros2_controllers.yaml</parameters>
+      <parameters>$(arg controllers_file)</parameters>
       <ros><namespace>$(arg namespace)</namespace></ros>
     </plugin></gazebo>
   </xacro:if>
@@ -45,10 +45,10 @@
       <xacro:axis name="${name}_flexion_level" index="${i}" lower="0"/>
       <xacro:axis name="${name}_abduction_level" index="${i+1}" lower="-1"/>
       <xacro:if value="$(arg use_sim)">
-        <joint name="${hand}_${name}_flexion"><state_interface name="position"/></joint>
-        <joint name="${hand}_${name}_abduction"><state_interface name="position"/></joint>
-        <joint name="${hand}_${name}_distal_hinge"><state_interface name="position"/></joint>
-        <joint name="${hand}_${name}_coupler_hinge"><state_interface name="position"/></joint>
+        <joint name="${name}_flexion"><state_interface name="position"/></joint>
+        <joint name="${name}_abduction"><state_interface name="position"/></joint>
+        <joint name="${name}_distal_hinge"><state_interface name="position"/></joint>
+        <joint name="${name}_coupler_hinge"><state_interface name="position"/></joint>
       </xacro:if>
       <xacro:unless value="$(arg use_sim)">
         <transmission name="${name}_transmission">
@@ -60,9 +60,9 @@
         </transmission>
       </xacro:unless>
     </xacro:macro>
-    <xacro:pair name="index" i="0"/>
-    <xacro:pair name="middle" i="2"/>
-    <xacro:pair name="ring" i="4"/>
-    <xacro:pair name="thumb" i="6"/>
+    <xacro:pair name="${side_prefix}index" i="0"/>
+    <xacro:pair name="${side_prefix}middle" i="2"/>
+    <xacro:pair name="${side_prefix}ring" i="4"/>
+    <xacro:pair name="${side_prefix}thumb" i="6"/>
   </ros2_control>
 </robot>

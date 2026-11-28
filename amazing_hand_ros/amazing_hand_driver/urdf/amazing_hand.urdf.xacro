@@ -47,8 +47,8 @@
       </transmission>
     </xacro:unless>
   </xacro:macro>
-  <xacro:control_pair name="index"/>
-  <xacro:control_pair name="middle"/>
-  <xacro:control_pair name="ring"/>
-  <xacro:control_pair name="thumb"/>
+  <xacro:control_pair name="${side_prefix}index"/>
+  <xacro:control_pair name="${side_prefix}middle"/>
+  <xacro:control_pair name="${side_prefix}ring"/>
+  <xacro:control_pair name="${side_prefix}thumb"/>
 </robot>

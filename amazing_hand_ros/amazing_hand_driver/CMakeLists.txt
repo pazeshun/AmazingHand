@@ -18,7 +18,7 @@ if("$ENV{ROS_VERSION}" STREQUAL "2")
   pluginlib_export_plugin_description_file(hardware_interface amazing_hand_hardware_interface.xml)
   install(TARGETS amazing_hand_hardware_interface LIBRARY DESTINATION lib)
 
-  install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch FILES_MATCHING PATTERN "*.launch.xml")
+  install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch FILES_MATCHING PATTERN "*.launch.xml" PATTERN "*.launch.py")
   install(FILES config/ros2_controllers.yaml config/hand_ros2.rviz DESTINATION share/${PROJECT_NAME}/config)
   install(FILES urdf/amazing_hand.ros2_control.xacro DESTINATION share/${PROJECT_NAME}/urdf)
   install(PROGRAMS scripts/hand_calibration.py scripts/hand_description scripts/hand_rviz_config DESTINATION lib/${PROJECT_NAME})
